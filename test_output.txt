@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- === PRIMARY META === -->
+  <title>ÆON — Modern Luxury Dining | Fine Dining Restaurant</title>
+  <meta name="description" content="Experience the pinnacle of modern luxury dining at ÆON. A fusion of tradition and innovation in every dish. Reserve your table today.">
+  <meta name="keywords" content="fine dining, luxury restaurant, modern cuisine, ÆON, reservation, gourmet, chef's table, NYC dining">
+  <meta name="author" content="ÆON Restaurant">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="7 days">
+
+  <!-- === OPEN GRAPH / SOCIAL SHARING === -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ÆON — Modern Luxury Dining">
+  <meta property="og:description" content="Experience the pinnacle of modern luxury dining at ÆON. A fusion of tradition and innovation in every dish.">
+  <meta property="og:url" content="https://aeon-restaurant.netlify.app/">
+  <meta property="og:site_name" content="ÆON Restaurant">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=630&fit=crop&q=80">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ÆON Restaurant interior and dining experience">
+  <meta property="og:locale" content="en_US">
+
+  <!-- === TWITTER CARD === -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ÆON — Modern Luxury Dining">
+  <meta name="twitter:description" content="Experience the pinnacle of modern luxury dining at ÆON. A fusion of tradition and innovation.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&h=630&fit=crop&q=80">
+
+  <!-- === FAVICON === -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+  <link rel="canonical" href="https://aeon-restaurant.netlify.app/">
+
+  <!-- === GOOGLE FONTS === -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- === AOS === -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <!-- === STYLESHEETS === -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ============================================
+       NOISE OVERLAY
+       ============================================ -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- ============================================
+       CUSTOM CURSOR
+       ============================================ -->
+  <div class="cursor-ring" id="cursorRing"></div>
+  <div class="cursor-dot" id="cursorDot"></div>
+
+  <!-- ============================================
+       PRELOADER
+       ============================================ -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">ÆON</div>
+    <div class="preloader-bar">
+      <div class="preloader-bar-fill" id="preloaderBarFill"></div>
+    </div>
+    <div class="preloader-percent" id="preloaderPercent">0%</div>
+  </div>
+
+  <!-- ============================================
+       NAVIGATION
+       ============================================ -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav-logo" id="navLogo">ÆON</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#menu" class="nav-link">Menu</a>
+      <a href="#chefs" class="nav-link">Chefs</a>
+      <a href="#reservation" class="nav-link">Reserve</a>
+      <a href="#gallery" class="nav-link">Gallery</a>
+      <a href="#footer" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO SECTION
+       ============================================ -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">Est. 2024</div>
+
+      <h1 class="hero-title">
+        <span class="line"><span>Where</span></span>
+        <span class="line"><span>Flavor Meets</span></span>
+        <span class="line"><span>Artistry</span></span>
+      </h1>
+
+      <p class="hero-subtitle">
+        An immersive dining experience that transcends the ordinary. 
+        Welcome to the future of gastronomy.
+      </p>
+
+      <div class="hero-cta">
+        <div class="magnetic-wrapper">
+          <button class="btn-primary" id="heroCta">
+            Reserve Your Experience
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-indicator">
+      <span>Scroll</span>
+      <div class="hero-scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT SECTION
+       ============================================ -->
+  <section class="section about" id="about">
+    <div class="about-pin-wrapper">
+      <div class="about-horizontal" id="aboutHorizontal">
+        <!-- Panel 1: Text -->
+        <div class="about-panel">
+          <div class="about-content">
+            <span class="section-label">Our Story</span>
+            <h2 class="section-title" data-aos="fade-up">
+              Redefining<br>
+              <span class="text-gold">Modern Dining</span>
+            </h2>
+            <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+              At ÆON, we believe dining is more than sustenance — it's an orchestrated 
+              experience. Our culinary artisans blend heritage techniques with avant-garde 
+              innovation to create dishes that tell stories.
+            </p>
+            <div class="deco-line" data-aos="fade-up" data-aos-delay="200"></div>
+            <p data-aos="fade-up" data-aos-delay="300" style="color: var(--color-text-muted); line-height: 1.8; margin-top: var(--space-lg);">
+              From our open kitchen to your plate, every element is meticulously crafted. 
+              We source the finest seasonal ingredients from around the globe, partnering 
+              with sustainable farms and artisanal producers who share our passion for excellence.
+            </p>
+
+            <div class="about-stats">
+              <div class="about-stat" data-aos="fade-up" data-aos-delay="100">
+                <div class="counter-number"><span class="counter" data-target="25">0</span>+</div>
+                <div class="counter-label">Years Excellence</div>
+              </div>
+              <div class="about-stat" data-aos="fade-up" data-aos-delay="200">
+                <div class="counter-number"><span class="counter" data-target="10">0</span>K+</div>
+                <div class="counter-label">Dishes Served</div>
+              </div>
+              <div class="about-stat" data-aos="fade-up" data-aos-delay="300">
+                <div class="counter-number"><span class="counter" data-target="50">0</span>K+</div>
+                <div class="counter-label">Happy Guests</div>
+              </div>
+            </div>
+
+            <button class="btn-outline" style="margin-top: var(--space-2xl);" data-aos="fade-up" data-aos-delay="400">
+              Explore Our Story
+              <span style="display: inline-block; transition: transform 0.3s ease;">→</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Panel 2: Image + Video -->
+        <div class="about-panel">
+          <div class="about-image-wrapper">
+            <div class="about-image-inner">
+              <video class="about-video" id="aboutVideo" muted loop playsinline
+                poster="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80">
+                <source src="https://cdn.coverr.co/videos/coverr-chef-preparing-food-in-a-restaurant-kitchen-5763/1080p.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="about-video-btn" id="videoToggle">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       MENU SECTION
+       ============================================ -->
+  <section class="section menu" id="menu">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">Our Menu</span>
+        <h2 class="section-title" data-aos="fade-up">Crafted to Perfection</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+          A carefully curated selection of dishes that showcase the best of seasonal ingredients and culinary innovation.
+        </p>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="pill-tabs" data-aos="fade-up" data-aos-delay="200">
+        <button class="pill-tab active" data-category="starters">Starters</button>
+        <button class="pill-tab" data-category="mains">Mains</button>
+        <button class="pill-tab" data-category="desserts">Desserts</button>
+        <button class="pill-tab" data-category="drinks">Drinks</button>
+      </div>
+
+      <!-- Menu Items -->
+      <div class="menu-items-wrapper">
+
+        <!-- Starters -->
+        <div class="menu-category active" data-category="starters">
+          <div class="menu-grid">
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80" alt="Truffle & Honey Wagyu Tataki" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Truffle & Honey Wagyu Tataki</h3>
+                    <p class="item-desc">Seared wagyu with black truffle shavings</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$28</div>
+                  <p class="item-ingredients">A5 Wagyu, black truffle, honey glaze, micro shiso, yuzu kosho</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1553621042-f6e147245754?w=600&q=80" alt="Smoked Salmon Carpaccio" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Smoked Salmon Carpaccio</h3>
+                    <p class="item-desc">House-cured salmon with citrus dressing</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$22</div>
+                  <p class="item-ingredients">Scottish salmon, yuzu dressing, caper berries, dill oil, crispy shallots</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80" alt="Lobster Bisque" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Lobster Bisque</h3>
+                    <p class="item-desc">Silky lobster bisque with cognac cream</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$26</div>
+                  <p class="item-ingredients">Maine lobster, cognac, crème fraîche, chive oil, garlic croutons</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mains -->
+        <div class="menu-category" data-category="mains">
+          <div class="menu-grid">
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Miso Black Cod" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Miso Black Cod</h3>
+                    <p class="item-desc">Caramelized with sweet miso glaze</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$44</div>
+                  <p class="item-ingredients">Alaskan black cod, white miso, sake, pickled daikon, shimeji mushrooms</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80" alt="Herb Crusted Lamb Rack" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Herb Crusted Lamb Rack</h3>
+                    <p class="item-desc">New Zealand lamb with rosemary mint pesto</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$52</div>
+                  <p class="item-ingredients">NZ lamb, herb crust, mint pesto, roasted heirloom carrots, jus</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=80" alt="Wild Mushroom Risotto" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Wild Mushroom Risotto</h3>
+                    <p class="item-desc">Arborio rice with foraged mushrooms</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$34</div>
+                  <p class="item-ingredients">Porcini, chanterelle, truffle oil, aged parmesan, fresh thyme</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desserts -->
+        <div class="menu-category" data-category="desserts">
+          <div class="menu-grid">
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600&q=80" alt="Smoked Matcha Crème Brûlée" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Smoked Matcha Crème Brûlée</h3>
+                    <p class="item-desc">Ceremonial matcha with caramelized sugar</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$18</div>
+                  <p class="item-ingredients">Japanese matcha, vanilla bean, caramelized sugar, edible gold leaf</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Dark Chocolate Lava" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Dark Chocolate Lava</h3>
+                    <p class="item-desc">Valrhona chocolate with salted caramel</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$20</div>
+                  <p class="item-ingredients">Valrhona 70%, salted caramel, vanilla ice cream, gold dust</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=600&q=80" alt="Lychee & Rose Pavlova" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Lychee & Rose Pavlova</h3>
+                    <p class="item-desc">Meringue with lychee cream and rose petals</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$18</div>
+                  <p class="item-ingredients">Meringue, lychee purée, rose water cream, fresh berries, pistachio</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drinks -->
+        <div class="menu-category" data-category="drinks">
+          <div class="menu-grid">
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=600&q=80" alt="Midnight Sazerac" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Midnight Sazerac</h3>
+                    <p class="item-desc">Rye whiskey with absinthe rinse</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$22</div>
+                  <p class="item-ingredients">Rye whiskey, absinthe, Peychaud's bitters, sugar cube, lemon peel</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1536935338788-846bb9981813?w=600&q=80" alt="Yuzu Basil Smash" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Yuzu Basil Smash</h3>
+                    <p class="item-desc">Japanese citrus with fresh basil</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$18</div>
+                  <p class="item-ingredients">Gin, yuzu juice, basil, simple syrup, soda, ice</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-item-card">
+              <div class="menu-item-inner">
+                <div class="menu-item-front">
+                  <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?w=600&q=80" alt="Smoked Old Fashioned" loading="lazy">
+                  <div class="item-info">
+                    <h3 class="item-name">Smoked Old Fashioned</h3>
+                    <p class="item-desc">Barrel-aged with cherrywood smoke</p>
+                  </div>
+                </div>
+                <div class="menu-item-back">
+                  <div class="item-price">$24</div>
+                  <p class="item-ingredients">Bourbon, angostura bitters, demerara, cherrywood smoke, orange</p>
+                  <button class="btn-outline">Order Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CHEF SECTION
+       ============================================ -->
+  <section class="section chefs" id="chefs">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">Our Team</span>
+        <h2 class="section-title" data-aos="fade-up">Masters of the Craft</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+          Visionary chefs who bring passion, creativity, and precision to every plate.
+        </p>
+      </div>
+
+      <div class="chef-grid">
+        <!-- Chef 1 -->
+        <div class="chef-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="chef-image-wrapper">
+             <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?w=400&h=400&fit=crop&crop=face&q=80" alt="Chef Marco Vieri" loading="lazy">
+          </div>
+          <h3 class="chef-name">Chef Marco Vieri</h3>
+          <p class="chef-role">Executive Chef</p>
+          <p class="chef-bio">With 15 years at Michelin-starred kitchens across Europe, Marco brings classical technique with a modern edge.</p>
+        </div>
+
+        <!-- Chef 2 -->
+        <div class="chef-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="chef-image-wrapper">
+             <img src="https://images.unsplash.com/photo-1595273670150-bd0c3c392e46?w=400&h=400&fit=crop&crop=face&q=80" alt="Chef Sakura Tanaka" loading="lazy">
+          </div>
+          <h3 class="chef-name">Chef Sakura Tanaka</h3>
+          <p class="chef-role">Head Pastry Chef</p>
+          <p class="chef-bio">Trained in Tokyo and Paris, Sakura's desserts are edible art that balance tradition with avant-garde flair.</p>
+        </div>
+
+        <!-- Chef 3 -->
+        <div class="chef-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="chef-image-wrapper">
+             <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop&crop=face&q=80" alt="Chef David Chen" loading="lazy">
+          </div>
+          <h3 class="chef-name">Chef David Chen</h3>
+          <p class="chef-role">Head Sommelier</p>
+          <p class="chef-bio">Award-winning sommelier with an impeccable palate, curating wine pairings that elevate every dish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       RESERVATION SECTION
+       ============================================ -->
+  <section class="section reservation" id="reservation">
+    <div class="reservation-bg-text">RESERVE</div>
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">Reservations</span>
+        <h2 class="section-title" data-aos="fade-up">Book Your Experience</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+          Secure your table at ÆON and embark on a culinary journey like no other.
+        </p>
+      </div>
+
+      <div class="reservation-card" id="reservationCard" data-aos="fade-up" data-aos-delay="200">
+        <!-- Form -->
+        <form class="reservation-form" id="reservationForm" name="Reservation" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="Reservation">
+          <input type="hidden" name="bot-field" class="hidden" style="display:none">
+          <div class="form-grid">
+            <div class="form-group">
+              <input type="text" id="resName" class="input-field" required>
+              <label for="resName">Full Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" id="resEmail" class="input-field" required>
+              <label for="resEmail">Email Address</label>
+            </div>
+            <div class="form-group">
+              <input type="tel" id="resPhone" class="input-field" required>
+              <label for="resPhone">Phone Number</label>
+            </div>
+            <div class="form-group">
+              <input type="date" id="resDate" class="input-field" required>
+              <label for="resDate">Date</label>
+            </div>
+            <div class="form-group">
+              <select id="resGuests" class="input-field" required>
+                <option value="" disabled selected></option>
+                <option value="1">1 Guest</option>
+                <option value="2">2 Guests</option>
+                <option value="3">3 Guests</option>
+                <option value="4">4 Guests</option>
+                <option value="5">5 Guests</option>
+                <option value="6">6+ Guests</option>
+              </select>
+              <label for="resGuests">Number of Guests</label>
+            </div>
+            <div class="form-group">
+              <select id="resTime" class="input-field" required>
+                <option value="" disabled selected></option>
+                <option value="17:00">5:00 PM</option>
+                <option value="18:00">6:00 PM</option>
+                <option value="19:00">7:00 PM</option>
+                <option value="20:00">8:00 PM</option>
+                <option value="21:00">9:00 PM</option>
+                <option value="22:00">10:00 PM</option>
+              </select>
+              <label for="resTime">Time</label>
+            </div>
+            <div class="form-group full-width">
+              <textarea id="resSpecial" class="input-field" rows="3"></textarea>
+              <label for="resSpecial">Special Requests</label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary btn-submit" style="width: 100%; justify-content: center; margin-top: var(--space-md);">
+            Confirm Reservation
+            <span class="btn-arrow">→</span>
+          </button>
+        </form>
+
+        <!-- Success State -->
+        <div class="reservation-success" id="reservationSuccess">
+          <div class="success-icon">
+            <svg viewBox="0 0 100 100">
+              <circle class="checkmark-circle" cx="50" cy="50" r="45" />
+              <path class="checkmark-check" d="M25 50 L42 67 L75 34" />
+            </svg>
+          </div>
+          <h3 class="success-title">Reservation Confirmed!</h3>
+          <p class="success-text">We've sent a confirmation to your email. We look forward to welcoming you at ÆON.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       GALLERY SECTION
+       ============================================ -->
+  <section class="section gallery" id="gallery">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-label">Gallery</span>
+        <h2 class="section-title" data-aos="fade-up">Visual Elegance</h2>
+        <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+          A glimpse into the world of ÆON — where every dish is a masterpiece.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" data-caption="Artful Presentation — Golden beet carpaccio">
+          <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=600&h=600&fit=crop&q=80" alt="Artful Presentation" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Artful Presentation</h4>
+            <p>Golden beet carpaccio</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="150" data-caption="Interior Ambience — Intimate dining space">
+          <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&h=600&fit=crop&q=80" alt="Interior Ambience" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Interior Ambience</h4>
+            <p>Intimate dining space</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" data-caption="Midnight Cocktails — Signature smoke & spirits">
+          <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600&h=600&fit=crop&q=80" alt="Midnight Cocktails" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Midnight Cocktails</h4>
+            <p>Signature smoke & spirits</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="250" data-caption="Wagyu Excellence — Seared to perfection">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&h=600&fit=crop&q=80" alt="Wagyu Excellence" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Wagyu Excellence</h4>
+            <p>Seared to perfection</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="300" data-caption="Ocean Fresh — Daily catch selection">
+          <img src="https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=600&h=600&fit=crop&q=80" alt="Ocean Fresh" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Ocean Fresh</h4>
+            <p>Daily catch selection</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="350" data-caption="Chef's Table — Behind the scenes">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?w=600&h=600&fit=crop&q=80" alt="Chef's Table" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Chef's Table</h4>
+            <p>Behind the scenes</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="400" data-caption="Wine Cellar — Curated selections">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&h=600&fit=crop&q=80" alt="Wine Cellar" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Wine Cellar</h4>
+            <p>Curated selections</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="450" data-caption="Decadent Desserts — Sweet finales">
+          <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=600&h=600&fit=crop&q=80" alt="Decadent Desserts" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Decadent Desserts</h4>
+            <p>Sweet finales</p>
+          </div>
+        </div>
+        <div class="gallery-item" data-aos="fade-up" data-aos-delay="500" data-caption="Exclusive Events — Private dining experiences">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=600&fit=crop&q=80" alt="Exclusive Events" loading="lazy">
+          <div class="gallery-overlay">
+            <h4>Exclusive Events</h4>
+            <p>Private dining experiences</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightboxClose">✕</button>
+      <button class="lightbox-nav prev" id="lightboxPrev">‹</button>
+      <button class="lightbox-nav next" id="lightboxNext">›</button>
+      <div class="lightbox-content">
+        <img id="lightboxImage" src="" alt="Lightbox Image">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer" id="footer">
+    <div class="section-container">
+      <div class="footer-grid">
+        <!-- Brand -->
+        <div>
+          <div class="footer-brand">ÆON</div>
+          <p class="footer-desc">
+            An immersive dining experience where culinary artistry meets modern luxury. 
+            Every dish tells a story.
+          </p>
+          <div class="footer-socials">
+            <a href="#" class="social-icon" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-icon" aria-label="TikTok">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <div class="footer-links">
+            <a href="#about" class="footer-link">About Us</a>
+            <a href="#menu" class="footer-link">Our Menu</a>
+            <a href="#chefs" class="footer-link">Meet the Team</a>
+            <a href="#reservation" class="footer-link">Reservations</a>
+            <a href="#gallery" class="footer-link">Gallery</a>
+            <a href="#" class="footer-link">Careers</a>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div>
+          <h4 class="footer-heading">Stay Connected</h4>
+          <p class="footer-desc" style="margin-bottom: var(--space-lg);">
+            Subscribe for exclusive offers, new menu launches, and events.
+          </p>
+          <form class="footer-newsletter" id="newsletterForm" name="Newsletter" method="POST" data-netlify="true" netlify-honeypot="bot-newsletter">
+            <input type="hidden" name="form-name" value="Newsletter">
+            <input type="hidden" name="bot-newsletter" class="hidden" style="display:none">
+            <input type="email" placeholder="Your email" required>
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2024 ÆON. All rights reserved.</span>
+        <span>Crafted with passion in NYC</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       BACK TO TOP
+       ============================================ -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- ============================================
+       SCRIPTS
+       ============================================ -->
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRw0xM4h0i4n8sB7l5pLgH3Tq3Gs6JZ1sOBP2U4xLbH4qB2R2i6ZbG6vFJMP+yT56c9MN8/Sb2Rlq0D+w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-g+0T1vbwQNQmTT1Z6hRoXgH3m010g3nj6J53T1QcC5M4f5d5Tj3gOHX3LhG51pYXxTZ3L5uBLpJh3AXg7mdBKA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Custom Scripts (order matters — preloader first) -->
+  <script src="js/preloader.js"></script>
+  <script src="js/three-background.js"></script>
+  <script src="js/custom-cursor.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/reservation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
