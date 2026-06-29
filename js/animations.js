@@ -33,36 +33,20 @@
     });
   }
 
-  // ---- About Horizontal Scroll ----
-  function aboutHorizontalScroll() {
-    const horizontal = document.getElementById('aboutHorizontal');
-    if (!horizontal) return;
+  // ---- About Reveal ----
+  function aboutReveal() {
+    // Animate about content panels when they enter viewport
+    const aboutPanel = document.querySelector('.about-grid');
+    if (!aboutPanel) return;
 
-    const panels = gsap.utils.toArray('.about-panel');
-    const totalWidth = horizontal.scrollWidth - window.innerWidth;
-
-    gsap.to(horizontal, {
-      x: () => -totalWidth,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.about',
-        pin: true,
-        scrub: 1,
-        start: 'top top',
-        end: () => `+=${totalWidth + 200}`,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    // Animate stats when they appear
-    panels.forEach((panel) => {
-      const counters = panel.querySelectorAll('.counter');
-      counters.forEach((counter) => {
-        ScrollTrigger.create({
-          trigger: counter,
-          start: 'left 80%',
-          onEnter: () => animateCounter(counter),
-        });
+    // Animate counters when they enter viewport
+    const counters = document.querySelectorAll('.about .counter');
+    counters.forEach((counter) => {
+      ScrollTrigger.create({
+        trigger: counter,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => animateCounter(counter),
       });
     });
   }
@@ -245,7 +229,7 @@
 
   // ---- Section Reveal Animations (only for elements within, not sections themselves) ----
   function sectionReveals() {
-    gsap.utils.toArray('.section-header, .about-panel, .chef-card, .gallery-item').forEach((el) => {
+    gsap.utils.toArray('.section-header, .chef-card, .gallery-item').forEach((el) => {
       gsap.from(el, {
         y: 40,
         opacity: 0,
@@ -283,7 +267,7 @@
   function init() {
     heroReveal();
     heroParallax();
-    aboutHorizontalScroll();
+    aboutReveal();
     aboutCounters();
     chefAnimation();
     menuAnimations();
