@@ -1,0 +1,45 @@
+[build]
+  # Tell Netlify this is a static site (no build required)
+  publish = "."
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets aggressively
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+[[headers]]
+  for = "/assets/textures/*"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000, immutable"
+
+# Redirect rules
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
+# Handle 404s
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
